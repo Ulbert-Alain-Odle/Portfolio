@@ -1,0 +1,651 @@
+/*
+travail fait par David Rousseau dans le cadre du cours 582-1W1 – Mise en page Web au 
+collège de Maisonneuve en Multimédia.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap');
+/*seconde remise à zéro*/
+*{
+    margin: 0;
+    padding: 0;
+    font-family:Helvetica, sans-serif;
+}
+
+
+html{
+    scroll-behavior: smooth;
+}
+#global{
+    background-color: rgb(25, 25, 25);
+    overflow-x: hidden;
+    font-family:Helvetica, sans-serif ;
+    
+/*
+
+menu de navigation
+
+*/
+}
+nav{
+    position:fixed;
+    top:50px;
+    left: -13.5vw;
+    display: flex;
+    flex-direction: row;
+    width: 18vw;
+    height: 45vh;
+    background-color: rgb(0, 0, 0);
+    transition: 0.7s all ease;
+    z-index: 2;
+}
+nav ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    list-style: none;
+    align-items: center;
+    width: 75%;
+}
+nav ul li{
+    display: flex;
+    flex-grow: 1;
+    width: 101%; /**sinon il y a un espace de 1px entre ul et aside*/
+    font-size: 1.2em;
+    transition: 0.7s all ease;
+    padding-left: 2vw;
+}
+nav li:hover{
+    color: rgb(255, 0, 100);
+    background-color: rgb(255, 0, 100);
+}
+/*lien*/
+nav a{
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+}
+nav a:visited{
+    color: white;
+}
+nav a:active{
+    color: rgb(189, 117, 141);
+}
+/*texte qui sort à droite*/
+aside{
+
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    align-items: center;
+    justify-content: center;
+    background-color:rgb(255, 0, 100) ;
+}
+aside img{
+    margin: 40px 0;
+    transform: rotate(.25turn);
+    transition: 1s all ease;
+}
+aside h3{   
+    transform-origin: 50% 50%;
+    transform: rotate(0.25turn);
+    font-size: 3em;
+    color: #fff;
+    font-family: 'Raleway', Helvetica, sans-serif;
+}
+nav a img{
+    display: flex;
+    justify-content: left;
+}
+/*transformation du menu*/
+nav:hover{
+    transform: translate(70%);
+}
+nav:hover aside img{
+    transform: rotate(.75turn);
+}
+/*h3 pas possible dans ul donc mise dans li + supression des effet de li*/
+
+nav ul li:first-child{
+    display: flex;
+    justify-content: center;
+    width: 101%;
+    padding: 1vh 0;
+    color: rgb(255, 0, 100);
+    font-size: 2em;
+    border-bottom: 4px solid rgb(255, 0, 100);
+    font-family: 'Raleway',Helvetica, sans-serif;
+}
+nav li:hover:first-child{
+    color: rgb(255, 0, 100);
+    background-color:rgb(0, 0, 0);
+}
+
+
+/*
+
+section de la page web
+
+*/
+section{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;/*pour retirer la barre en bas*/
+    height: 100vh;
+    border-left: 1.5vw solid rgb(255, 0, 100);
+   
+
+}
+h1{
+    color: #fff;
+    font-size: 3em;
+    font-family: 'Raleway',Helvetica sans-serif;
+    margin-bottom: 10px;
+}
+section div{
+    background-color: #fff;
+    width: 75%;
+    border-radius: 25px;
+    margin-bottom: 2vh;
+}
+/*section des photos (configuration de base pour ces éléments)*/
+section>div {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow-y:auto;
+}
+figure{   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin:10px 3vw;
+    width: 28vh;
+    height: 37vh;
+    border: 4px solid rgb(255, 0, 100);
+    background-color: rgb(255, 0, 100);
+    border-radius: 25px;
+    transition: 0.6s all ease;
+}
+#galerie figure:hover{
+    width: 29vh;
+    height: 40vh;
+    transform: translateY(-1vh);
+    
+}
+figcaption{
+    /*background-color: rgba(0, 0, 0, 0.5);*/
+    color: #fff;
+    width: 100%;
+    height: 10%;
+    text-align: center;
+    transition: 0.6s all ease;
+}
+#galerie figure:hover figcaption{
+    width: 85%;
+    
+}
+#galerie img{
+    width: 80%;
+    max-height: 80%;
+    border-radius: 10px;
+
+}
+/*
+
+section acceuil
+
+*/
+#acceuil>h1{
+    /*utiliser pour créer un margin top et pour enlever l'erreur du titre dans une section*/
+    font-size: 3vh;
+    opacity: 0;
+}
+#acceuil div{
+    justify-content: space-around;
+    position: relative;
+
+}
+/*losange rose*/
+#acceuil div div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 0, 100);
+    width: 25vw;
+    height: 25vw;
+    transform:rotate(.125turn) ;
+    transition: 1s all ease;
+    z-index: 1; /*évite les colisions entre la souris et les h4 qui sont invisible*/
+    
+}
+#acceuil div div:hover{
+    transform: rotate(.625turn);
+
+}
+#acceuil div div h1{
+    transform: rotate(-.125turn);
+    transition: 1s all ease;
+}
+#acceuil div div:hover h1{
+    transform: rotate(.375turn);
+}
+/*date*/
+#acceuil div div h5{
+    font-size: 1em;
+    transform: rotate(.375turn);
+    position:absolute;
+    top: 40%;
+    left:30%;
+    color: #fff;
+    opacity: 0%;
+    transition: 1s all ease;
+}
+#acceuil div div:hover h5{
+    opacity: 100%;
+    transition-delay: 0s, .5s;
+    transition-property: rotate,opacity;
+}
+/*infirmation qui sorte du losange*/
+#acceuil div h4{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position:absolute;
+    font-size: 1.6vw;
+    transform-origin: 50% 50%;
+    transition: 1s all ease;  
+    color: rgb(255, 0, 100); 
+    opacity: 0%; 
+    text-decoration: underline;
+}
+#acceuil div h4:nth-of-type(1){
+    top: 12%;
+    left: 43%;
+}
+#acceuil div h4:nth-of-type(2){
+    top: 28%;
+    left: 43%;
+}
+#acceuil div h4:nth-of-type(3){
+    top: 42.7%;
+    left: 43%;
+}
+#acceuil div h4:nth-of-type(4){
+    top: 60%;
+    left: 43%;
+}
+#acceuil div h4:nth-of-type(5){
+    top: 76%;
+    left: 43%;
+}
+#acceuil div div:hover ~h4:nth-of-type(1){
+    transition-delay: .6s;
+    transform:translateX(17vh);
+    opacity: 100%;
+}
+#acceuil div div:hover ~h4:nth-of-type(2){
+    transition-delay: 1.2s;
+    transform:translateX(30vh);
+    opacity: 100%;
+}
+#acceuil div div:hover ~h4:nth-of-type(3){
+    transition-delay: 1.8s;
+    transform:translateX(45vh);
+    opacity: 100%;
+}
+#acceuil div div:hover ~h4:nth-of-type(4){
+    transition-delay: 2.4s;
+    transform:translateX(33vh);
+    opacity: 100%;
+}
+#acceuil div div:hover ~h4:nth-of-type(5){
+    transition-delay: 3s;
+    transform:translateX(17vh);
+    opacity: 100%;
+}
+/*
+
+section tableau
+
+*/
+table{
+    border-collapse: collapse;
+    background-color: rgb(255, 0, 100);
+    width: 75%;
+    height: 75%;
+    border: 3px solid black;
+
+}
+/*titre et sous-titre*/ 
+caption{
+    background-color: rgb(171, 0, 68);
+    border: 3px solid black;
+    border-bottom: none;
+    font-size: 3em;
+    font-family: 'Raleway',Helvetica sans-serif;
+}
+thead tr{
+    height: 5vh;
+    border: 3px solid black;
+}
+/*cases du centre du tableau*/
+tbody th{
+    border: 3px solid black;
+    width: 12.5%;
+    font-family: 'Raleway',Helvetica sans-serif;
+    
+}
+tbody td{
+    border: 1px solid black;
+    width: 12.5%;
+}
+.ligne{
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ff0064+0,ff0064+36,ffffff+37,ffffff+60,ffffff+60,ff0064+61,ff0064+100 */
+background: #ff0064; /* Old browsers */
+background: -moz-linear-gradient(left,  #FF0064 0%, #FF0064 36%, #FFFFFF 37%, #FFFFFF 60%, #FFFFFF 60%, #FF0064 61%, #FF0064 100%); /* FF3.6-15 */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,#FF0064), color-stop(36%,#FF0064), color-stop(37%,#FFFFFF), color-stop(60%,#FFFFFF), color-stop(60%,#FFFFFF), color-stop(61%,#FF0064), color-stop(100%,#FF0064)); /* Chrome4-9,Safari4-5 */
+background: -webkit-linear-gradient(left,  #FF0064 0%,#FF0064 36%,#FFFFFF 37%,#FFFFFF 60%,#FFFFFF 60%,#FF0064 61%,#FF0064 100%); /* Chrome10-25,Safari5.1-6 */
+background: -o-linear-gradient(left,  #FF0064 0%,#FF0064 36%,#FFFFFF 37%,#FFFFFF 60%,#FFFFFF 60%,#FF0064 61%,#FF0064 100%); /* Opera 11.10-11.50 */
+background: -ms-linear-gradient(left,  #FF0064 0%,#FF0064 36%,#FFFFFF 37%,#FFFFFF 60%,#FFFFFF 60%,#FF0064 61%,#FF0064 100%); /* IE10 preview */
+background: linear-gradient(to right,  #FF0064 0%,#FF0064 36%,#FFFFFF 37%,#FFFFFF 60%,#FFFFFF 60%,#FF0064 61%,#FF0064 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0064', endColorstr='#ff0064',GradientType=1 ); /* IE6-9 */
+
+}
+/*cases en dessous*/
+tfoot{
+    height: 10%;
+}
+tfoot th{
+    border: 3px solid black;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-family: 'Raleway',Helvetica sans-serif;
+}
+/*
+
+section Article
+
+*/
+#article div div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 0, 100);
+    height: 20%;
+    width: 80%;
+    border: 1px solid black;
+    transition: 1s all ease;
+}
+#article div div h2{
+    opacity: 100%;
+    transition: 0.3s all ease;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+/*texte caché dans les div*/
+#article div div div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    overflow: hidden;
+    width: 75%;
+    height: 10px;
+    border: none;
+
+}
+p{
+    opacity: 0;
+    transition: 1.5s all ease;
+    font-size: 1.1em;
+    margin: 2.5vh;   
+}
+#article div div:hover div{
+    height: 100%;
+    border-radius:0px ;
+}
+#article div div:hover div p{
+    opacity: 100%;
+}
+
+#article div div:hover{
+    height: 70%;
+
+}
+/*gerer les image intégré aux textes*/
+#article img{
+    height: 60px;
+    width: 60px;
+    float: right;
+}
+#article p+p img{
+    width: 120px;
+    height: 40px;
+}
+
+/*
+
+section vidéo
+
+*/
+
+#video>div{
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+/*contenant des vidéos*/
+#video div figure{  
+    margin: 0; 
+    width: 30%;
+    height: 35%;
+    border: 3px solid rgb(255, 0, 100);
+    border-radius: 10%;
+    transition: .6s all ease;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+iframe{
+    width: 90%;
+    height: auto;
+    border: 0;
+}
+#video h6 {
+    font-size: 1em;
+    color: #fff;
+    font-family: 'Raleway',Helvetica sans-serif;
+}
+/*animation des vidéos lors du survole*/
+#video div figure:hover{
+    transform: translateY(-6vh);
+}
+#video figcaption{
+    position:relative;
+    top: 2.5vh;
+    opacity: 0%;
+}
+#video div figure:hover figcaption{
+    transform: translateY(3vh);
+    opacity: 100%;
+}
+#video a{
+    color:rgb(171, 0, 68);
+    font-size: small;
+}
+#video a:visited{
+    color: rgb(171, 0, 68);
+}
+/*
+
+section formulaire
+
+*/
+h2{
+    font-size: 2.5em;
+    font-family: 'Raleway',Helvetica sans-serif;
+    color: #fff;
+
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+#inscription div{
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+#inscription div fieldset{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    width: 30%;
+    height: 50%;
+    border-radius: 5%;
+}
+legend{
+    font-weight:bold;
+    font-family: 'Raleway',Helvetica sans-serif;
+}
+label{
+    font-weight: bold;
+    font-family: Helvetica, sans-serif;
+}
+/*conteneur de droite*/
+#inscription div fieldset:last-child{
+    width: 40%;
+}
+fieldset:last-child>label:last-child{
+    font-size: .8em;
+}
+/*date d'expiration*/
+#inscription fieldset div{
+    margin: 0;
+    height: auto;
+    display: flex;
+    justify-content: end;
+}
+/*bouton cliquable*/
+#bouton{
+    margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
+    padding: 0.5vw;
+    background-color: #fff;
+    width: 70%;
+    height: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 100px;
+}
+#bouton input{
+    background-color: rgb(255, 0, 100);
+    color: #fff;
+    border-radius: 50px;
+    padding: 0.5vw;
+    border:1px black solid;
+}
+#bouton input:active{
+    background-color: rgb(171, 0, 68);
+    color: rgb(189, 117, 141);
+}
+
+
+/*pied de page*/
+footer{
+    background-color: black;
+    height: 25vh;
+    border-bottom:1vw solid rgb(255, 0, 100);
+    border-left: 1.5vw solid rgb(255, 0, 100);
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+footer div{
+    width: 30%;
+    margin: 1% 1% 0 3%;
+}
+
+footer h4{
+    font-size: 2em;
+    font-family:'Raleway',Helvetica, sans-serif; ;
+}
+/*liste du pied de page*/
+footer ul{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    list-style: none;
+    height: 75%;
+}
+footer li{
+    font-size: .8em;
+}
+/*liste imbriqué pour les réseaux sociaux*/
+footer div:last-child ul ol{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: auto;
+    list-style: none;
+}
+footer div:last-child ul ol li{
+    padding: 4px;
+    border:3px  #fff solid ;
+    width: 32px;
+    height: 32px;
+    border-radius: 10%;
+    opacity: 100%;
+    transition: .2s all linear;
+}
+footer div:last-child ul ol li:hover{
+    opacity: 65%;
+}
+/*lien*/
+footer a{
+    color: #fff;
+}
+footer a:visited{
+    color: #fff;
+}
+/*
+
+modifier la barre de défilement
+
+*/
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(85, 85, 85);
+    outline:3px solid black ;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgb(255, 0, 100);
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(171, 0, 68);
+  }
+  
