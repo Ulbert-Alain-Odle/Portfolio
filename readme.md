@@ -1,4 +1,4 @@
-<h1>Portfolio pout le tp2</h1>
+<h1>Portfolio pour le tp2</h1>
 
 adresse de la page:
-<p>https://Ulbert-Alain-Odle.github.io/Portfolio</p>
+<p>https://Ulbert-Alain-Odle.github.io/Portfolio/</p>
